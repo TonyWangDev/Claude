@@ -1,0 +1,51 @@
+@import '@fontsource/orbitron/700.css';
+@import '@fontsource/orbitron/900.css';
+@import '@fontsource/rajdhani/500.css';
+@import '@fontsource/rajdhani/600.css';
+@import '@fontsource/rajdhani/700.css';
+@import '@fontsource/noto-sans-jp/700.css';
+@import '@fontsource/noto-sans-jp/900.css';
+
+:root { --cy: #19e6ff; --mg: #ff2bd6; --ink: #e8f6ff; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #020206; overflow: hidden; color: var(--ink); font-family: 'Rajdhani', system-ui, sans-serif; }
+#view { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+.hidden { display: none !important; }
+
+.screen { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; text-align: center; padding: 24px; z-index: 5; }
+#loading { background: radial-gradient(ellipse at 50% 60%, #12062a 0%, #020206 70%); }
+#start { background: linear-gradient(180deg, rgba(2, 2, 8, 0.25) 0%, rgba(2, 2, 8, 0.72) 100%); }
+#pause { background: rgba(3, 3, 10, 0.62); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+h1, h2 { font-family: 'Orbitron', sans-serif; font-weight: 900; margin: 0; letter-spacing: 0.32em; padding-left: 0.32em; color: #fff;
+  text-shadow: 0 0 18px var(--cy), 0 0 60px rgba(25, 230, 255, 0.45), 3px 0 0 rgba(255, 43, 214, 0.7), -3px 0 0 rgba(25, 230, 255, 0.7); }
+h1 { font-size: clamp(38px, 8vw, 104px); }
+h2 { font-size: clamp(22px, 3vw, 36px); }
+.sub { margin: 0; letter-spacing: 0.4em; text-transform: uppercase; font-size: 15px; color: var(--cy); opacity: 0.9; }
+
+.bar { width: min(420px, 70vw); height: 3px; background: rgba(255, 255, 255, 0.12); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--mg), var(--cy)); box-shadow: 0 0 14px var(--cy); transition: width 0.25s ease; }
+#status { margin: 0; letter-spacing: 0.25em; text-transform: uppercase; font-size: 13px; opacity: 0.7; }
+
+button { font: 700 15px 'Orbitron', sans-serif; letter-spacing: 0.28em; text-transform: uppercase; color: #fff; background: rgba(25, 230, 255, 0.08);
+  border: 1px solid var(--cy); padding: 16px 34px; cursor: pointer; box-shadow: 0 0 22px rgba(25, 230, 255, 0.35), inset 0 0 18px rgba(25, 230, 255, 0.12); transition: all 0.2s; }
+button:hover { background: rgba(255, 43, 214, 0.18); border-color: var(--mg); box-shadow: 0 0 30px rgba(255, 43, 214, 0.55), inset 0 0 18px rgba(255, 43, 214, 0.2); }
+
+.keys { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin: 0; padding: 0; font-size: 15px; letter-spacing: 0.08em; opacity: 0.85; max-width: 640px; }
+.keys b { color: var(--cy); font-weight: 700; margin-right: 6px; }
+.tip { max-width: 520px; margin: 0; font-size: 14px; opacity: 0.6; letter-spacing: 0.04em; }
+
+.panel { display: flex; flex-direction: column; gap: 14px; padding: 22px 26px; border: 1px solid rgba(25, 230, 255, 0.25); background: rgba(6, 8, 20, 0.6); min-width: min(560px, 92vw); }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.row label { font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; white-space: nowrap; }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.seg button { padding: 8px 12px; font-size: 11px; letter-spacing: 0.12em; box-shadow: none; border-color: rgba(255, 255, 255, 0.25); background: transparent; }
+.seg button.on { border-color: var(--mg); background: rgba(255, 43, 214, 0.22); box-shadow: 0 0 14px rgba(255, 43, 214, 0.4); }
+input[type='range'] { width: 240px; accent-color: var(--cy); }
+
+#fade { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.45s ease; z-index: 3; }
+#prompt { position: fixed; left: 50%; bottom: 16%; transform: translateX(-50%); font: 700 14px 'Orbitron', sans-serif; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 10px 18px; border: 1px solid var(--cy); background: rgba(2, 6, 14, 0.55); text-shadow: 0 0 10px var(--cy); opacity: 0; transition: opacity 0.2s; pointer-events: none; z-index: 2; }
+#prompt.on { opacity: 1; }
+#hint { position: fixed; left: 18px; bottom: 14px; font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0; transition: opacity 1.2s; pointer-events: none; z-index: 2; }
+#hint.on { opacity: 0.45; }

@@ -1,0 +1,21 @@
+{
+  "name": "neon-city",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "First-person cyberpunk megacity exploration built with Three.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-jp": "^5.2.9",
+    "@fontsource/orbitron": "^5.2.8",
+    "@fontsource/rajdhani": "^5.2.7",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}

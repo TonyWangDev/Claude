@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEON CITY</title>
+  <link rel="stylesheet" href="./src/ui/style.css" />
+</head>
+<body>
+  <canvas id="view"></canvas>
+
+  <div id="fade"></div>
+  <div id="prompt"></div>
+  <div id="hint">ESC — settings</div>
+
+  <section id="loading" class="screen">
+    <h1>NEON CITY</h1>
+    <div class="bar"><i id="bar"></i></div>
+    <p id="status">Waking the grid…</p>
+  </section>
+
+  <section id="start" class="screen hidden">
+    <h1>NEON CITY</h1>
+    <p class="sub">Halcyon District · 02:47 · rain</p>
+    <button id="enter">Enter the city</button>
+    <ul class="keys">
+      <li><b>W A S D</b> walk</li><li><b>Mouse</b> look</li><li><b>Shift</b> sprint</li>
+      <li><b>Space</b> jump</li><li><b>E</b> use lift</li><li><b>Esc</b> settings</li>
+    </ul>
+  </section>
+
+  <section id="pause" class="screen hidden">
+    <h2>NEON CITY</h2>
+    <div class="panel">
+      <div class="row"><label>Weather</label><div class="seg" id="weather"></div></div>
+      <div class="row"><label>Graphics</label><div class="seg" id="quality"></div></div>
+      <div class="row"><label>Mouse sensitivity</label><input id="sens" type="range" min="0.3" max="2.5" step="0.05" /></div>
+      <div class="row"><label>Field of view</label><input id="fov" type="range" min="55" max="95" step="1" /></div>
+      <div class="row"><label>Volume</label><input id="vol" type="range" min="0" max="1" step="0.02" /></div>
+    </div>
+    <button id="resume">Return to the street</button>
+    <ul class="keys">
+      <li><b>W A S D</b> walk</li><li><b>Shift</b> sprint</li><li><b>Space</b> jump</li><li><b>E</b> use lift</li><li><b>1–4</b> weather</li>
+    </ul>
+    <p class="tip">Take the stairs on Halcyon Avenue to the skybridge, the lift at the Hoshi Hotel to the sky deck, or the metro steps in the corner plaza.</p>
+  </section>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
